@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.zy.gateway.admin.client.dao.slaver.NewsDao">
+
+	<select id="list" resultType="org.zy.gateway.admin.client.model.News">
+		SELECT * FROM t_news ORDER BY id DESC LIMIT 10
+	</select>
+
+	<select id="select" resultType="org.zy.gateway.admin.client.model.News">
+		SELECT * FROM t_news ORDER BY id DESC LIMIT 1
+	</select>
+	
+	<update id="update">
+		UPDATE t_news SET time=NOW() ORDER BY id DESC LIMIT 1
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM t_news ORDER BY id DESC LIMIT 1
+	</delete>
+
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+		INSERT INTO t_news(title,content,time,create_date)
+		VALUES(#{title},#{content},NOW(),NOW())
+	</insert>
+	
+</mapper>

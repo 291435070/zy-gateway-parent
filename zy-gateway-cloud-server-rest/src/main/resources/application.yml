@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: gateway-server-rest
+server:
+  port: 9601
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9600/eureka/

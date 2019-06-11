@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: gateway-sight
+server:
+  port: 9000
